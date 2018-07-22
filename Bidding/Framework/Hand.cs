@@ -5,26 +5,26 @@ namespace Bidding.Framework
 {
     public class Hand
     {
-        private readonly HashSet<Card> Cards;
-        private HashSet<Card> PlayedCards;
+        private readonly HashSet<Card> _cards;
+        private HashSet<Card> _playedCards = new HashSet<Card>();
 
-        public Hand(HashSet<Card> cards)
+        public Hand(List<Card> cards)
         {
-            Cards = cards;
+            _cards = cards.ToHashSet();
         }
 
         public List<Card> Show()
         {
-            return Cards.Except(PlayedCards).OrderByDescending(c => c.Order()).ToList();
+            return _cards.Except(_playedCards).OrderByDescending(c => c.Order()).ToList();
         }
 
         public bool Play(Card card)
         {
-            if (!Cards.Contains(card) || PlayedCards.Contains(card))
+            if (!_cards.Contains(card) || _playedCards.Contains(card))
             {
                 return false;
             }
-            PlayedCards.Add(card);
+            _playedCards.Add(card);
             return true;
         }
 

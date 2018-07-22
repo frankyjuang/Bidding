@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore;
+﻿using Bidding.Framework;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Bidding
@@ -7,7 +8,10 @@ namespace Bidding
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            // CreateWebHostBuilder(args).Build().Run();
+
+            var game = new GamePlay();
+            game.Start();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

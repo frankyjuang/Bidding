@@ -3,7 +3,7 @@ namespace Bidding.Framework
     public enum Level
     {
         [Symbol("1")]
-        One,
+        One = 1,
         [Symbol("2")]
         Two,
         [Symbol("3")]

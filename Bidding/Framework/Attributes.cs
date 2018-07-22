@@ -3,6 +3,17 @@ using System;
 namespace Bidding.Framework
 {
     [AttributeUsage(AttributeTargets.Field)]
+    class ColorAttribute : Attribute
+    {
+        public string AnsiCode { get; }
+
+        public ColorAttribute(string ansiCode)
+        {
+            AnsiCode = ansiCode;
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Field)]
     class MajorAttribute : Attribute
     {
         public MajorAttribute() { }

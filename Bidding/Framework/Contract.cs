@@ -1,41 +1,57 @@
 using EnumsNET;
-using System;
 
 namespace Bidding.Framework
 {
-    public class Contract : IComparable<Contract>
+    public class Contract
     {
-        public Level Level { get; set; }
-        public Suit? Suit { get; set; }
+        private Level _level { get; }
+        private Suit? _suit { get; }
 
-        private int Order() => (int)Level * 4 + (int)Suit;
-
-        public int CompareTo(Contract other)
+        public Contract(Level level, Suit? suit)
         {
-            if (Level == other.Level && Suit == other.Suit)
+            _level = level;
+            _suit = suit;
+        }
+
+        private int Order()
+        {
+            if (_suit == null)
             {
-                return 0;
+                return (int)_level * 5 + 5;
             }
-            if (Order() < other.Order())
-            {
-                return -1;
-            }
-            return 1;
+            return (int)_level * 5 + (int)_suit;
+        }
+
+        public static bool operator >(Contract c1, Contract c2) => c1.Order() > c2.Order();
+        public static bool operator <(Contract c1, Contract c2) => c1.Order() < c2.Order();
+
+        public bool IsGame()
+        {
+            var level = (int)_level;
+            if (_suit == null && level >= 3) return true;
+            var suit = _suit.GetValueOrDefault();
+            if (suit.GetAttributes().Has<MajorAttribute>() && level >= 4) return true;
+            if (suit.GetAttributes().Has<MinorAttribute>() && level >= 5) return true;
+            return false;
         }
 
         public override string ToString()
         {
+            var level = _level.GetAttributes().Get<SymbolAttribute>().Symbol;
             string suit;
-            if (Suit == null)
+            string color;
+            if (_suit == null)
             {
                 suit = "NT";
+                color = "\u001b[0;35m";
             }
             else
             {
-                suit = Suit.GetValueOrDefault().GetAttributes().Get<SymbolAttribute>().Symbol;
+                var attributes = _suit.GetValueOrDefault().GetAttributes();
+                suit = attributes.Get<SymbolAttribute>().Symbol;
+                color = attributes.Get<ColorAttribute>().AnsiCode;
             }
-            var level = Level.GetAttributes().Get<SymbolAttribute>().Symbol;
-            return suit + level;
+            return color + level + suit + "\u001b[0m";
         }
     }
 }

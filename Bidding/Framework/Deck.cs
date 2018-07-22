@@ -1,24 +1,23 @@
 using EnumsNET;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Bidding.Framework
 {
-    public class Deck : IEnumerable<Card>
+    public class Deck
     {
-        private readonly List<Card> Cards;
+        private readonly List<Card> _cards = new List<Card>();
 
         public Deck()
         {
-            foreach (var rank in Enums.GetValues<Rank>())
+            foreach (var suit in Enums.GetValues<Suit>())
             {
-                foreach (var suit in Enums.GetValues<Suit>())
+                foreach (var rank in Enums.GetValues<Rank>())
                 {
-                    Cards.Add(new Card { Suit = suit, Rank = rank });
+                    _cards.Add(new Card(suit, rank));
                 }
             }
-            Shuffle(Cards);
+            Shuffle(_cards);
         }
 
         private static Random rng = new Random();
@@ -37,14 +36,12 @@ namespace Bidding.Framework
             }
         }
 
-        public IEnumerator<Card> GetEnumerator()
+        public IEnumerable<List<Card>> Deal()
         {
-            return ((IEnumerable<Card>)Cards).GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ((IEnumerable<Card>)Cards).GetEnumerator();
+            for (var i = 0; i < 52; i += 13)
+            {
+                yield return _cards.GetRange(i, 13);
+            }
         }
     }
 }
