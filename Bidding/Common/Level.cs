@@ -1,4 +1,4 @@
-namespace Bidding.Framework
+namespace Bidding.Common
 {
     public enum Level
     {

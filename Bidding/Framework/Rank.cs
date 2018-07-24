@@ -1,3 +1,5 @@
+using Bidding.Common;
+
 namespace Bidding.Framework
 {
     public enum Rank

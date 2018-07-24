@@ -1,6 +1,6 @@
 using System;
 
-namespace Bidding.Framework
+namespace Bidding.Common
 {
     [AttributeUsage(AttributeTargets.Field)]
     class ColorAttribute : Attribute

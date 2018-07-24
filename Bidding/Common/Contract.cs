@@ -1,6 +1,6 @@
 using EnumsNET;
 
-namespace Bidding.Framework
+namespace Bidding.Common
 {
     public class Contract
     {
