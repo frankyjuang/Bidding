@@ -14,6 +14,8 @@ namespace Bidding.Bidding
 
         public string QueryBid(Bid bid, BidState bidState)
         {
+            // check against all known rules.
+            // if does not match, use Natural rule
             return "";
         } 
     }

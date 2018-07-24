@@ -4,7 +4,7 @@ namespace Bidding.Bidding
 {
     public class Bid
     {
-        public Contract contract { get; set; }
-        public Position position { get; set; }
+        public Contract Contract { get; set; }
+        public Position Position { get; set; }
     }
 }

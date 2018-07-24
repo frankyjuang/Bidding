@@ -2,17 +2,18 @@ namespace Bidding.Bidding
 {
     public class RevealedInfo
     {
-        public Position position { get; set; }
-        public int minPoints { get; set; } = 0;
-        public int maxPoints { get; set; } = 40;
-        public int minClubs { get; set; } = 0;
-        public int maxClubs { get; set; } = 13;
-        public int minDiamonds { get; set; } = 0;
-        public int maxDiamonds { get; set; } = 13;
-        public int minHearts { get; set; } = 0;
-        public int maxHearts { get; set; } = 13;
-        public int minSpades { get; set; } = 0;
-        public int maxSpades { get; set; } = 13;
-        public string Note { get; set; }
+        public Position Position { get; set; }
+        public int MinHCP { get; set; } = 0;
+        public int MaxHCP { get; set; } = 40;
+        public int MinTotalPoints { get; set; } = 0;
+        public int MaxTotalPoints { get; set; } = 40;
+        public int MinClubs { get; set; } = 0;
+        public int MaxClubs { get; set; } = 13;
+        public int MinDiamonds { get; set; } = 0;
+        public int MaxDiamonds { get; set; } = 13;
+        public int MinHearts { get; set; } = 0;
+        public int MaxHearts { get; set; } = 13;
+        public int MinSpades { get; set; } = 0;
+        public int MaxSpades { get; set; } = 13;
     }
 }
