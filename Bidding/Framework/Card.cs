@@ -1,4 +1,5 @@
 using EnumsNET;
+using Bidding.Common;
 
 namespace Bidding.Framework
 {

@@ -2,7 +2,7 @@
 
 namespace Bidding.Controllers
 {
-    [Route("bidding")]
+    [Route("v1/bidding")]
     [ApiController]
     public class BiddingController : ControllerBase
     {
