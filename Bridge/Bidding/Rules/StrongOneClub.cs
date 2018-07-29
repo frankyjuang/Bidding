@@ -1,6 +1,6 @@
+using Bidding.Common;
 using System;
 using System.Collections.Generic;
-using Bidding.Common;
 
 namespace Bidding.Bidding.Rules
 {
@@ -23,7 +23,7 @@ namespace Bidding.Bidding.Rules
 
         public bool MatchesConditions(Bid bid, BidState state)
         {
-            if (bid.Contract.Suit == Suit.Club && bid.Contract.Level == Level.One)
+            if (bid.Contract.Suit == ContractSuit.Club && bid.Contract.Level == Level.One)
             {
                 return true;
             }

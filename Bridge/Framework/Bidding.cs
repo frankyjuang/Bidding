@@ -1,7 +1,7 @@
+using Bidding.Common;
 using EnumsNET;
 using System.Collections.Generic;
 using System.Linq;
-using Bidding.Common;
 
 namespace Bidding.Framework
 {
@@ -14,7 +14,7 @@ namespace Bidding.Framework
         {
             foreach (var level in Enums.GetValues<Level>())
             {
-                foreach (var suit in Enums.GetValues<Suit>())
+                foreach (var suit in Enums.GetValues<ContractSuit>())
                 {
                     _contracts.Add(new Contract(level, suit));
                 }

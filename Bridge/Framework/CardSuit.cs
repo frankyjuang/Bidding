@@ -1,6 +1,8 @@
-namespace Bidding.Common
+using Bidding.Common;
+
+namespace Bidding.Framework
 {
-    public enum Suit
+    public enum CardSuit
     {
         [Minor, Symbol("♣"), Color("\u001b[0;32m")]
         Club = 1,

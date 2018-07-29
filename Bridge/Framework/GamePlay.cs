@@ -1,6 +1,6 @@
+using Bidding.Common;
 using System;
 using System.Collections.Generic;
-using Bidding.Common;
 
 namespace Bidding.Framework
 {
@@ -52,11 +52,7 @@ namespace Bidding.Framework
                 return false;
             }
             var level = (Level)(bid / 10);
-            Suit? suit = null;
-            if (bid % 10 != 5)
-            {
-                suit = (Suit)(bid % 10);
-            }
+            var suit = (ContractSuit)(bid % 10);
             contract = new Contract(level, suit);
             return true;
         }

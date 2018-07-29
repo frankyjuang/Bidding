@@ -1,14 +1,14 @@
-using EnumsNET;
 using Bidding.Common;
+using EnumsNET;
 
 namespace Bidding.Framework
 {
     public class Card
     {
-        public Suit suit { get; }
+        public CardSuit suit { get; }
         public Rank rank { get; }
 
-        public Card(Suit s, Rank r)
+        public Card(CardSuit s, Rank r)
         {
             suit = s;
             rank = r;

@@ -1,7 +1,6 @@
 using EnumsNET;
 using System;
 using System.Collections.Generic;
-using Bidding.Common;
 
 namespace Bidding.Framework
 {
@@ -11,7 +10,7 @@ namespace Bidding.Framework
 
         public Deck()
         {
-            foreach (var suit in Enums.GetValues<Suit>())
+            foreach (var suit in Enums.GetValues<CardSuit>())
             {
                 foreach (var rank in Enums.GetValues<Rank>())
                 {
