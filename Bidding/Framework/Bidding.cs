@@ -1,7 +1,7 @@
-using EnumsNET;
 using System.Collections.Generic;
 using System.Linq;
 using Bidding.Common;
+using EnumsNET;
 
 namespace Bidding.Framework
 {

@@ -24,6 +24,8 @@ namespace Bidding.Common
 
         public static bool operator >(Contract c1, Contract c2) => c1.Order() > c2.Order();
         public static bool operator <(Contract c1, Contract c2) => c1.Order() < c2.Order();
+        public static bool operator ==(Contract c1, Contract c2) => c1.Order() == c2.Order();
+        public static bool operator !=(Contract c1, Contract c2) => c1.Order() != c2.Order();
 
         public bool IsGame()
         {
